@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api').replace(/\/+$/, '');
 
 export const getAuthToken = (): string | null => {
   return localStorage.getItem('caflow_token');
@@ -341,7 +341,7 @@ export const api = {
     const headers: Record<string, string> = {};
     if (token) headers['Authorization'] = `Bearer ${token}`;
 
-    const res = await fetch('http://localhost:5000/api/voice/stt', {
+    const res = await fetch(`${API_BASE}/voice/stt`, {
       method: 'POST',
       headers,
       body: formData,
