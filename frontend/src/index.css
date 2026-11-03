@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #176B57;
+  --color-primary-hover: #135847;
+  --color-primary-light: #E8F3EF;
+  --color-secondary: #202A33;
+  --color-bg: #F7F8F5;
+  --color-card: #FFFFFF;
+  --color-accent: #DDAA45;
+  --color-text: #263238;
+  --color-border: #E1E7E2;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F4F1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4D1C7;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A0B2A4;
+}
+
+/* Voice Assistant Dark Purple Scrollbars */
+.va-dark-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.va-dark-scroll::-webkit-scrollbar-track {
+  background: rgba(24, 11, 45, 0.7);
+}
+
+.va-dark-scroll::-webkit-scrollbar-thumb {
+  background: #4a217c;
+  border-radius: 4px;
+}
+
+.va-dark-scroll::-webkit-scrollbar-thumb:hover {
+  background: #6d28d9;
+}
+
+/* Custom Card & Table Styles */
+.caflow-card {
+  background: #FFFFFF;
+  border: 1px solid #E1E7E2;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease-in-out;
+}
+
+.caflow-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(23, 107, 87, 0.08);
+}
+
+.caflow-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.badge-pending {
+  background-color: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+}
+
+.badge-progress {
+  background-color: #E0F2FE;
+  color: #0369A1;
+  border: 1px solid #BAE6FD;
+}
+
+.badge-completed {
+  background-color: #DEF7EC;
+  color: #03543F;
+  border: 1px solid #BCF0DA;
+}
+
+.badge-hold {
+  background-color: #F1F5F9;
+  color: #475569;
+  border: 1px solid #E2E8F0;
+}
+
+.badge-urgent {
+  background-color: #FDE8E8;
+  color: #9B1C1C;
+  border: 1px solid #FBD5D5;
+}

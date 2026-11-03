@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Production Build Outputs
+dist/
+*/dist/
+build/
+*/build/
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+backend/.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Runtime data & temp files
+*.tmp
+*.bak
+custom-dropdowns.json
+kill-old.cjs
+
+# User file uploads & vaults
+uploads/
+*/uploads/
+backend/uploads/
+
