@@ -12,17 +12,28 @@ const router = Router();
 // ==========================================
 // VAULT STORAGE CONFIGURATION
 // ==========================================
-const UPLOAD_DIR = path.resolve(process.cwd(), 'uploads', 'vault');
-if (!fs.existsSync(UPLOAD_DIR)) {
-  fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+const UPLOAD_DIR = process.env.VERCEL
+  ? path.join('/tmp', 'uploads', 'vault')
+  : path.resolve(process.cwd(), 'uploads', 'vault');
+
+try {
+  if (!fs.existsSync(UPLOAD_DIR)) {
+    fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+  }
+} catch (e) {
+  console.warn('Vault storage directory creation note:', e);
 }
 
 const ALLOWED_EXTENSIONS = new Set(['.pdf', '.xls', '.xlsx', '.jpg', '.jpeg', '.png', '.webp']);
 
 const vaultStorage = multer.diskStorage({
   destination: (_req, _file, cb) => {
-    if (!fs.existsSync(UPLOAD_DIR)) {
-      fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+    try {
+      if (!fs.existsSync(UPLOAD_DIR)) {
+        fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+      }
+    } catch (e) {
+      console.warn('Vault destination warning:', e);
     }
     cb(null, UPLOAD_DIR);
   },
