@@ -33,7 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health', '/api'], (req, res) => {
   res.json({
     status: 'ok',
     app: 'CAFlow Backend API',
@@ -41,6 +41,7 @@ app.get('/api/health', (req, res) => {
     timestamp: new Date().toISOString(),
   });
 });
+
 
 // Domain Routes
 app.use('/api/auth', authRoutes);

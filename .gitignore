@@ -39,4 +39,7 @@ kill-old.cjs
 uploads/
 */uploads/
 backend/uploads/
+deploy-*.cjs
+deploy-*.js
+
 
