@@ -63,8 +63,10 @@ app.use('/api/client-portal', clientPortalRoutes);
 // Centralized error handling
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`🚀 CAFlow Backend Server running on port ${PORT}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🚀 CAFlow Backend Server running on port ${PORT}`);
+  });
+}
 
 export default app;
